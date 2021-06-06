@@ -98,11 +98,100 @@
 // const message2 = `名前は${name}です。年齢は${age}す`;
 // console.log(message2);
 
-// 配列;
-const myProfile = ["ゆか", 28];
-const message3 = `名前は${myProfile[0]}。年齢は${myProfile[1]}`;
-console.log(message3);
-//分割代入 配列の順番通りにいれる
-const [name, age] = myProfile;
-const message4 = `名前は${name}でして年齢は${age}だよ`;
-console.log(message4);
+// // 配列;
+// const myProfile = ["ゆか", 28];
+// const message3 = `名前は${myProfile[0]}。年齢は${myProfile[1]}`;
+// console.log(message3);
+// //分割代入 配列の順番通りにいれる
+// const [name, age] = myProfile;
+// const message4 = `名前は${name}でして年齢は${age}だよ`;
+// console.log(message4);
+
+/**
+ * デフォルト値、引数など
+ */
+//デフォルト値を設定していないとundefinedになっていまうので
+//ゲストを設定してみる
+// const sayHello = (name = "ゲスト") => console.log(`こんにちは！${name}さん！`);
+// sayHello("yuks");
+
+/**
+ * スプレッド構文...
+ * 配列の中身を順番に展開してくれる
+ */
+//配列の展開
+// const arr1 = [1, 2];
+// // console.log(arr1);
+// // console.log(...arr1);
+// const sumFunc = (num1, num2) => console.log(num1 + num2);
+// sumFunc(arr1[0], arr1[1]);
+// sumFunc(...arr1);
+
+//まとめる
+// const arr2 = [1, 2, 3, 4, 5];
+// const [num1, num2, ...arr3] = arr2;
+// console.log(num1);
+// console.log(num2);
+// console.log(arr3);
+
+//配列のコピー、結合
+// const arr4 = [10, 20];
+// const arr5 = [30, 40];
+
+// const arr6 = [...arr4];
+// arr6[0] = 100;
+// console.log(arr6);//100,20
+// console.log(arr4);//10,20 影響を受けない
+
+// const arr7 = [...arr4, ...arr5];
+// console.log(arr7);
+
+// const arr8 = arr4;
+// // console.log(arr8);
+// // 参照が引き継がれていて新しい配列の中身が変わった時元の配列が影響を受けてしまう
+// arr8[0] = 100;
+// console.log(arr8);//100,20
+// console.log(arr4);//100,20　影響を受けて変わってしまっている
+
+/**
+ * mapやfilterを使った配列の処理
+ */
+// const nameArr = ["田中", "山田", "ゆか"];
+// //従来のfor文
+// for (let index = 0; index < nameArr.length; index++) {
+//   console.log(nameArr[index]);
+// }
+// 結果全て出力される　田中　山田　ゆか
+
+// map
+// const nameArr2 = nameArr.map((name)=>{
+//   return name;
+// });
+// console.log(nameArr2);//結果新しい配列が生成される["田中", "山田", "ゆか"]
+
+// nameArr.map((name) => console.log(name));
+// 結果配列をループして処理する　田中　山田　ゆか
+
+// filter 配列に対してある条件に一致するものを取り出す
+// const numArr = [1, 2, 3, 4, 5];
+// const newNumArr = numArr.filter((num) => {
+//   return num % 2 === 0;
+// });
+// console.log(newNumArr);
+
+// const nameArr = ["田中", "山田", "ゆか"];
+//従来のfor文
+// for (let index = 0; index < nameArr.length; index++) {
+//   console.log(`${index + 1}番目は${nameArr[index]}です`);
+// }
+//第二引数でインデックス番号が取り出せる
+// nameArr.map((name, index) => console.log(`${index +1}番目は${name}です`));
+
+// const newNameArr = nameArr.map((name) => {
+//   if (name === "ゆか") {
+//     return name;
+//   } else {
+//     return `${name}さん`;
+//   }
+// });
+// console.log(newNameArr);
